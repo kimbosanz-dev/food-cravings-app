@@ -1,0 +1,205 @@
+.header {
+    background: #ffc43d;
+    height: 90px;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+  
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+}
+  
+  .header-logo {
+    color: black;
+    justify-self: start;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+    display: flex;
+    align-items: space-between;
+    margin-left: 40px;
+    margin-top: 32px;
+
+    .header-icon {
+        margin-right: 0.5rem;
+        width: 40px;
+        height: 40px;
+        border-radius: 3px;
+        border: 1px solid #FFC43D;
+        background-color: #FFC43D;
+    }
+
+    .header-brand-name {
+        font-weight: bolder;
+        font-size: 25px;
+        font-family: 'Open Sans';
+        margin-top: 5px;
+
+        &:focus, &:hover, &:visited, &:link, &:active {
+            color: black !important;
+        }
+    }
+  }
+  
+  .header-menu {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row !important;
+    list-style: none;
+    text-align: center;
+    justify-content: end;
+    margin-right: 40px;
+    margin-top: 10px;
+  }
+  
+  .header-item {
+    height: 80px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom .5s ease-in-out;
+  }
+  
+  .header-item:hover {
+    border-bottom: 2px solid black;
+    transition: 1.3s ease;
+  }
+  
+  .header-links {
+    color: black;
+    display: flex;
+    align-items: center;
+    text-decoration: none !important;
+    padding: 0.5rem 1rem;
+    height: 100%;
+    font-weight: 400;
+    font-family: 'Rubik';
+  }
+  
+  .fa-bars {
+    color: #fff;
+  }
+  
+  .header-menu-icon {
+    display: none;
+  }
+  
+  @media screen and (max-width: 960px) {
+    .NavbarItems {
+      position: relative;
+    }
+  
+    .header-menu {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 90vh;
+      position: absolute;
+      top: 80px;
+      left: -100%;
+      opacity: 1;
+      transition: all 0.5s ease;
+    }
+  
+    .header-menu.active {
+      background: #EEF1F7;
+      left: 0;
+      opacity: 1;
+      transition: all 0.6s ease;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+    }
+  
+    .header-links {
+      text-align: center;
+      padding: 2rem;
+      width: 100%;
+      display: table;
+    }
+  
+    .header-links:hover {
+      color: #FFC43D;
+      transform: scale(1.2);
+      transition: all 0.3s ease;
+    }
+  
+    .header-item:hover {
+      border: none;
+    }
+  
+    .header-item {
+      width: 100%;
+    }
+  
+    .header-logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(25%, 50%);
+      margin: 0px 0px 0px -25px;
+
+      .header-brand-name {
+        font-weight: 500;
+        font-size: 25px;
+        font-family: 'Rubik';
+      }
+    }
+  
+    .header-menu-icon {
+      display: flex;
+      flex-wrap: wrap;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(-100%, 60%);
+      font-size: 1.8rem;
+      cursor: pointer;
+      margin: 0px;
+    }
+  
+    .fa-times {
+      color: #fff;
+      font-size: 2rem;
+    }
+  
+    .nav-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 120px;
+    }
+  }
+
+  @media screen and (max-width: 320px){
+    .header-logo {
+      margin-left: 0px;
+      max-width: 100%;
+      margin-right: 154px;
+      margin-top: 10px;
+      width: 235px;
+      height: 26px;
+
+      .header-icon {
+        width: 37px;
+        height: 34px;
+        margin: 5px 0 0 -52px;
+      }
+    }
+
+    .header-menu-icon {
+      margin-top: -8px;
+      margin-right: -8px;
+      margin-top: 3px;
+    }
+
+    .header-brand-name {
+      margin-top: 7px !important;
+      margin-left: 4px;
+    }
+  }
