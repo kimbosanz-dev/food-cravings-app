@@ -69,13 +69,25 @@ const ShopDummyData = [
             {
                 id: 1,
                 name: 'Double Cheese-Burger',
-                imageUrl: '',
+                imageUrl: 'https://i.ibb.co/FHKyc76/MOOYAH-Double-Cheeseburger.png',
                 price: 'PHP 135',
             },
             {
                 id: 2,
                 name: 'Quarter Pounder',
-                imageUrl: '',
+                imageUrl: 'https://i.ibb.co/xFcZpn5/7a16e646668bbb24fbd798b7c6267bbf.png',
+                price: 'PHP 185',
+            },
+            {
+                id: 3,
+                name: 'Quarter Pounder',
+                imageUrl: 'https://i.ibb.co/xFcZpn5/7a16e646668bbb24fbd798b7c6267bbf.png',
+                price: 'PHP 185',
+            },
+            {
+                id: 4,
+                name: 'Quarter Pounder',
+                imageUrl: 'https://i.ibb.co/xFcZpn5/7a16e646668bbb24fbd798b7c6267bbf.png',
                 price: 'PHP 185',
             },
         ],

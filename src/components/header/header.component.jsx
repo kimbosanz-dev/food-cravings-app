@@ -2,19 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import './header.styles.scss';
+import { firebaseAuth } from '../../firebase/firebase.utils';
 
-function HeaderComponent() {
+const HeaderComponent = ({ currentUser }) => {
 
 const [click, setClick] = useState(false);
 const handleClick = () => setClick(!click);
 const closeMobileMenu = () => setClick(false);
-const history = localStorage.clear();
-//   signOut = () => {
-//     localStorage.removeItem("token");
-//     this.setState({
-//       islogout: true
-//     });
-//   };
 
     return (
         <>
@@ -48,17 +42,19 @@ const history = localStorage.clear();
                                 Help
                             </Link>
                         </li>
-                        {/* <li className="header-item">
-                            <button onClick={history} style={{
-                                background: '#ffc43d',
-                                marginTop: '15px',
-                                padding: '10px',
-                                borderWidth: '1px',
-                                borderRadius: '10px'
-                            }}>
-                                <Link to="/" style={{textDecoration: 'none', color: 'black'}}>Logout</Link>
-                            </button>
-                        </li> */}
+                        <li className="header-item">
+                            <Link to="/shop" className="header-links" onClick={closeMobileMenu}>
+                                Shop
+                            </Link>
+                        </li>
+                        <li className="header-item">
+                            {
+                                currentUser ? 
+                                <Link className="header-links" onClick={() => firebaseAuth.signOut()}>Sign Out</Link>
+                                :
+                                <Link to="/signin" className="header-links" onClick={closeMobileMenu}>Sign In</Link>
+                            }
+                        </li>
                     </ul>
                 </div>
             </div>
