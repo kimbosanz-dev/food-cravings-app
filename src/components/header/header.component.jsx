@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import './header.styles.scss';
 import { firebaseAuth } from '../../firebase/firebase.utils';
@@ -23,34 +23,34 @@ const closeMobileMenu = () => setClick(false);
                     </div>
                     <ul className={click ? 'header-menu active' : 'header-menu'}>
                         <li className="header-item">
-                            <Link to="/" className="header-links" onClick={closeMobileMenu} activeClassName="active">
+                            <NavLink to="/" className="header-links" onClick={closeMobileMenu} activeClassName="active">
                                 Home
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="header-item">
-                            <Link to="/activity" className="header-links" onClick={closeMobileMenu}>
+                            <NavLink to="/activity" className="header-links" onClick={closeMobileMenu}>
                                 Activity
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="header-item">
-                            <Link to="/explore" className="header-links" onClick={closeMobileMenu}>
+                            <NavLink to="/explore" className="header-links" onClick={closeMobileMenu}>
                                 Explore
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="header-item">
-                            <Link to="/help" className="header-links" onClick={closeMobileMenu}>
+                            <NavLink to="/help" className="header-links" onClick={closeMobileMenu}>
                                 Help
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="header-item">
-                            <Link to="/shop" className="header-links" onClick={closeMobileMenu}>
+                            <NavLink to="/shop" className="header-links" onClick={closeMobileMenu}>
                                 Shop
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="header-item">
                             {
                                 currentUser ? 
-                                <Link className="header-links" onClick={() => firebaseAuth.signOut()}>Sign Out</Link>
+                                <div className="header-links" onClick={() => firebaseAuth.signOut()}>Sign Out</div>
                                 :
                                 <Link to="/signin" className="header-links" onClick={closeMobileMenu}>Sign In</Link>
                             }
