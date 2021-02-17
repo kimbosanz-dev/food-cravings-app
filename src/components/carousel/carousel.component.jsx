@@ -21,7 +21,7 @@ export const CarouselComponent = () => (
             <Carousel.Caption>
             <h3>First slide label</h3>
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            <Button className="shop-btn" variant="secondary" size="lg">Shop Now</Button>
+            <Button className="shop-btn" size="lg">Shop Now</Button>
             </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -36,7 +36,7 @@ export const CarouselComponent = () => (
             <Carousel.Caption>
             <h3>Second slide label</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <Button className="shop-btn" variant="secondary" size="lg">Shop Now</Button>
+            <Button className="shop-btn" size="lg">Shop Now</Button>
             </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -51,7 +51,7 @@ export const CarouselComponent = () => (
             <Carousel.Caption>
             <h3>Third slide label</h3>
             <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-            <Button className="shop-btn" variant="secondary" size="lg">Shop Now</Button>
+            <Button className="shop-btn" size="lg">Shop Now</Button>
             </Carousel.Caption>
         </Carousel.Item>
     </Carousel>

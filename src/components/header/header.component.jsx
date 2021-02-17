@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import './header.styles.scss';
 import { firebaseAuth } from '../../firebase/firebase.utils';
+import { connect } from 'react-redux';
+import './header.styles.scss';
 
 const HeaderComponent = ({currentUser}) => {
 
@@ -62,4 +63,8 @@ const closeMobileMenu = () => setClick(false);
     )
 }
 
-export default HeaderComponent
+const mapStateToProps = state => ({
+    currentUser: state.user.currentUser,
+})
+
+export default connect(mapStateToProps) (HeaderComponent);
