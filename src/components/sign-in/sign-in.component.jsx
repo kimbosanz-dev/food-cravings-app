@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './sign-in.styles.scss';
 import { TextField, Button, Avatar } from '@material-ui/core';
 import { signInWithGoogle, firebaseAuth } from '../../firebase/firebase.utils';
+import { withRouter } from 'react-router-dom';
 
 
 class SignInComponent extends Component {
@@ -22,15 +23,26 @@ class SignInComponent extends Component {
     try {
       await firebaseAuth.signInWithEmailAndPassword(email, password);
       this.setState({email: '', password: ''})
+      this.props.history.push('/')
     } catch (error) {
       console.error(error);
     }
-
   }
 
   handleChange = event => {
     const { value, name } = event.target;
     this.setState({[name]: value});
+  }
+
+  async componentDidMount() {
+    await firebaseAuth.onAuthStateChanged(user => {
+      if (user) {
+        this.props.history.push('/')
+      } else {
+        this.props.history.push('/signin')
+      }
+    })
+
   }
 
   render() {
@@ -93,4 +105,4 @@ class SignInComponent extends Component {
   }
 }
 
-export default SignInComponent;
+export default withRouter(SignInComponent);

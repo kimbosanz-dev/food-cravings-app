@@ -14,13 +14,15 @@ export default class ShopPage extends Component {
     render() {
         const {shop_menu} = this.state;
         return (
-            <div className="shop-page">
-            {
-                shop_menu.map(({id, ...otherShopmenu}) => (
-                    <PreviewMenu key={id} {...otherShopmenu}/>
-                ))
-            }
-            </div>
+            <>
+                <div className="shop-page">
+                {
+                    shop_menu.map(({id, ...otherShopmenu}) => (
+                        <PreviewMenu key={id} {...otherShopmenu}/>
+                    ))
+                }
+                </div>
+            </>
         );
     }
 }

@@ -22,7 +22,13 @@
 
         .preview-menu-item-name {
             width: 80%;
+            font-weight: bolder;
             margin-bottom: 15px;
+
+            &:hover {
+                text-decoration: underline;
+                color: grey;
+            }
         }
 
         .preview-menu-item-price {
