@@ -1,0 +1,33 @@
+.cart-dropdown {
+    position: absolute;
+    width: 250px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 5px;
+    top: 90px;
+    right: 40px;
+    z-index: 5;
+
+    .cart-items {
+      height: 240px;
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      overflow: scroll;
+    }
+  
+    .checkout-btn {
+        margin-top: auto;
+        background-color: #ffc43d;
+    }
+  }
+
+  .empty-message {
+    font-size: 18px;
+    margin: 50px auto;
+  }
+  

@@ -7,8 +7,8 @@ const PreviewMenu = ({title, items}) => {
         <div className="preview-menu">
             <h1 className="preview-menu-title">{title.toUpperCase()}</h1>
             <div className="preview">
-                { items.map(({id, name, price, imageUrl}) => (
-                    <PreviewMenuItem key={id} name={name} price={price} imageUrl={imageUrl}/>
+                { items.map(item => (
+                    <PreviewMenuItem key={item.id} item={item} />
                 ))}
             </div>
         </div>

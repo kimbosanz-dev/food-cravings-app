@@ -10,6 +10,9 @@ import ShopPage from './pages/shop-page/shop-page.component';
 import HomePage from './pages/homepage/homepage.component';
 import NotFoundPage from './pages/404/404.component';
 import './App.scss';
+import { createStructuredSelector } from 'reselect';
+import { selectCurrentUser } from './redux/user/user.selectors';
+import CheckoutPage from './pages/checkout/checkout.component';
 
 class App extends Component {
 
@@ -46,7 +49,8 @@ class App extends Component {
       <>
         <HeaderComponent />
         <Route exact path='/' component={HomePage}/>
-        <Route exact path='/shop' component={ShopPage}/>
+        <Route path='/shop' component={ShopPage}/>
+        <Route exact path='/checkout' component={CheckoutPage}/>
       </>
     )
     return (
@@ -59,8 +63,8 @@ class App extends Component {
   }
 };
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser,
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
 })
 
 const mapDispatchToProps = dispatch => ({

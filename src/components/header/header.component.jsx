@@ -3,9 +3,16 @@ import { Link, NavLink } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { firebaseAuth } from '../../firebase/firebase.utils';
 import { connect } from 'react-redux';
-import './header.styles.scss';
+import { createStructuredSelector } from 'reselect';
 
-const HeaderComponent = ({currentUser}) => {
+import CartIconComponent from '../cart-icon/cart-icon.component';
+import CartDropdownComponent from '../cart-dropdown/cart-dropdown.component';
+
+import './header.styles.scss';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { selectCartHidden } from '../../redux/cart/cart.selectors';
+
+const HeaderComponent = ({ currentUser, hidden }) => {
 
 const [click, setClick] = useState(false);
 const handleClick = () => setClick(!click);
@@ -56,15 +63,25 @@ const closeMobileMenu = () => setClick(false);
                             <Link to="/signin" className="header-links" onClick={closeMobileMenu}>Sign In</Link>
                         }
                     </li>
+                    <li className="header-item">
+                        <div className="header-links">
+                            <CartIconComponent className="cart-icon-component"/>
+                        </div>
+                    </li>
                 </ul>
+                    {
+                        hidden ? null :
+                        <CartDropdownComponent className="cart-dropdown-component"/>
+                    }
             </div>
         </div>
         </>
     )
 }
 
-const mapStateToProps = state => ({
-    currentUser: state.user.currentUser,
+const mapStateToProps = createStructuredSelector({
+    currentUser: selectCurrentUser,
+    hidden: selectCartHidden,
 })
 
 export default connect(mapStateToProps) (HeaderComponent);
